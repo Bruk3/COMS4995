@@ -1,10 +1,9 @@
 # COMS4995
 Open Source Development
 
-Ideas
+Idea
 
-- Still brainstorming ideas for the project but I want to work on some sort of open source npm library
-1. `js-universal-parser` - translate any data serialization language into another. 
+`js-universal-parser` - translate any data serialization language into another. 
   - Most npm parsers out there are only single purpose parsers such as:
     - `js-yaml`: parses yaml files into a json object and also dumps json objects into a yaml file
     - `fast-xml-parser`: parses xml files into a json object and dumps json objects into an xml file
