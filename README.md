@@ -5,14 +5,14 @@
 
 
 #### What is it? 
-j-parser is a javascript library that allows a seemless conversion of one data serialization language to another. 
+`j-parser` is a javascript library that allows a seemless conversion of one data serialization language to another. 
 
 ----
-Most npm parser libraries out there are single purpose parsers that provide conversion capabilites from only one target data serialization language into JSON. J-parser is a wrapper around some of the most widely used npm parser libraries out there: `js-yaml`, `fast-xml-parser`, and `table-to-json` and exposes a simple API 
+Most npm parser libraries out there are single purpose parsers that provide conversion capabilites from only one target data serialization language into JSON. `J-parser` is a wrapper around some of the most widely used npm parser libraries out there - `js-yaml`, `fast-xml-parser`, and `table-to-json`- that exposes a simple API which will be used to translate from one format to another.  
 
 #### Target Features
  - YAML to JSON 
  - XML to JSON
  - YAML to XML 
  - HTML tables to JSON
- - And of-course vice versa for all of the above features
+ - And For all of the above features, the reverse translation will also be available.
