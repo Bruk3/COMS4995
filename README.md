@@ -1,8 +1,8 @@
 # j-parser
 
-### Parse any data serialization language into another. 
+### Parse any data serialization language into another
+![GitHub](https://img.shields.io/github/license/bruk3/j-parser)
 
- 
  - Most npm parsers out there are only single purpose parsers such as:
     - `js-yaml`: parses yaml files into a json object and also dumps json objects into a yaml file
     - `fast-xml-parser`: parses xml files into a json object and dumps json objects into an xml file
