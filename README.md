@@ -11,8 +11,8 @@
 Most npm parser libraries out there are single purpose parsers that provide conversion capabilites from only one target data serialization language into JSON. `J-parser` is a wrapper around some of the most widely used npm parser libraries out there: `js-yaml`, `fast-xml-parser`, and `table-to-json`. It exposes a simple API which will be used to translate from one format to another.  
 
 #### Target Features
- - YAML to JSON 
- - XML to JSON
- - YAML to XML 
- - HTML tables to JSON
+ - `YAML` to `JSON` 
+ - `XML` to `JSON`
+ - `YAML` to `XML` 
+ - `HTML tables` to `JSON`
  - And For all of the above features, the reverse translation will also be available.
