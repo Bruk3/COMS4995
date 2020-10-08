@@ -16,8 +16,6 @@ function yamlStringToJson(target) {
 
 async function yamlFileToJson(filename) {
   const yamlString = fs.readFileSync(filename, "utf-8");
-  console.log(`PRINTING YAMLSTRING: ${yamlString}`);
-  console.log("End of PRINTING HERE");
   return yamlStringToJson(yamlString);
 }
 
