@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "lint": "./node_modules/.bin/eslint test/*.js src/*.js",
-    "lint-fix": "./node_modules/.bin/eslint test/*.js src/*.js --fix"
+    "lint-fix": "./node_modules/.bin/eslint test/*.js src/*.js --fix",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
+    "nyc": "^15.1.0",
     "prettier": "^2.1.2"
   }
 }
