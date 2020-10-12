@@ -1,5 +1,4 @@
 const yaml = require("js-yaml");
-const path = require("path");
 const fs = require("fs");
 
 function yamlStringToJson(target) {
@@ -19,7 +18,28 @@ async function yamlFileToJson(filename) {
   return yamlStringToJson(yamlString);
 }
 
+function jsonToYamlString(jsonObj) {
+  let yamlString;
+
+  try {
+    yamlString = yaml.safeDump(jsonObj);
+  } catch (e) {
+    console.log(`error dumping yaml string: ${e}`);
+    return null;
+  }
+
+  return yamlString;
+}
+
+function jsonToYaml(jsonObj, filepath = null) {
+  const yamlString = jsonToYamlString(jsonObj);
+  fs.writeFileSync(filepath, yamlString);
+  return yamlString;
+}
+
 module.exports = {
-  yamlStringToJson,
+  jsonToYaml,
+  jsonToYamlString,
   yamlFileToJson,
+  yamlStringToJson,
 };

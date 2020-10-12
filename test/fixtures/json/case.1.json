@@ -1,6 +1,6 @@
 {
     "name": "CI",
-    "on": {
+    "one": {
        "pull_request": null,
        "push": {
           "branches": [

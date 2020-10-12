@@ -1,20 +1,50 @@
-const assert = require("assert");
+const assert = require("chai").assert;
 const fs = require("fs");
 const path = require("path");
-const { yamlStringToJson, yamlFileToJson } = require("../src/index");
+const sinon = require("sinon");
+const {
+  jsonToYamlString,
+  yamlStringToJson,
+  yamlFileToJson,
+} = require("../src/index");
 
-describe("Array", function () {
-  describe("indexOf()", function () {
-    it("should return -1 when the value is not present", function () {
-      assert.equal([1, 2, 3].indexOf(4), -1);
+const json1 = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, "fixtures", "json", "case.1.json"),
+    "utf-8"
+  )
+);
+
+const json2 = JSON.parse(
+  fs.readFileSync(
+    path.resolve(__dirname, "fixtures", "json", "case.2.json"),
+    "utf-8"
+  )
+);
+
+describe("yaml", function () {
+  describe("jsonToYamlString", function () {
+    it("should dump a type string", () => {
+      assert.typeOf(
+        jsonToYamlString(json1),
+        "string",
+        "does not return string"
+      );
     });
   });
 });
 
-describe("Array", function () {
-  describe("sort()", function () {
-    it("should sort the given array in increasing order", function () {
-      assert.deepEqual([1, 2, 3], [2, 1, 3].sort());
+describe("yaml", function () {
+  describe("jsonToYamlString", function () {
+    const yamlString = fs.readFileSync(
+      path.resolve(__dirname, "fixtures", "yaml", "case.1.yml"),
+      "utf-8"
+    );
+
+    console.log(`The String from the file ${yamlString}`);
+    console.log(`THE RESULT ITSELF ${jsonToYamlString(json1)}`);
+    it("should dump a valid yaml file", () => {
+      assert.equal(yamlString, jsonToYamlString(json1));
     });
   });
 });
@@ -23,7 +53,7 @@ describe("yaml", function () {
   describe("yamlFileToJson", function () {
     const expectedJson = JSON.parse(
       fs.readFileSync(
-        path.resolve(__dirname, "fixtures", "results", "case.1.json"),
+        path.resolve(__dirname, "fixtures", "json", "case.1.json"),
         "utf-8"
       )
     );
@@ -32,7 +62,21 @@ describe("yaml", function () {
       assert.deepEqual(
         expectedJson,
         await yamlFileToJson(
-          path.resolve(__dirname, "fixtures", "cases", "case.1.yml")
+          path.resolve(__dirname, "fixtures", "yaml", "case.1.yml")
+        )
+      );
+    });
+  });
+});
+
+describe("yaml", function () {
+  describe("yamlFileToJson yaml file with whitespace", function () {
+    const expectedJson = json2;
+    it("converts yaml file to a JSON object", async function () {
+      assert.deepEqual(
+        expectedJson,
+        await yamlFileToJson(
+          path.resolve(__dirname, "fixtures", "yaml", "case.2.yml")
         )
       );
     });
@@ -43,14 +87,9 @@ describe("yaml", function () {
   describe("yamlStringToJson", function () {
     it("converts yaml string to a json", async function () {
       const yamlString = fs.readFileSync(
-        path.resolve(__dirname, "fixtures", "cases", "case.1.yml")
+        path.resolve(__dirname, "fixtures", "yaml", "case.2.yml")
       );
-      const expectedJson = JSON.parse(
-        fs.readFileSync(
-          path.resolve(__dirname, "fixtures", "results", "case.1.json"),
-          "utf-8"
-        )
-      );
+      const expectedJson = json2;
       assert.deepEqual(expectedJson, yamlStringToJson(yamlString));
     });
   });

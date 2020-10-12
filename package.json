@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Bruk3/j-parser#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "fast-xml-parser": "^3.17.4",
     "js-yaml": "^3.14.0",
     "mocha": "^8.1.3",
