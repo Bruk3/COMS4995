@@ -1,20 +1,18 @@
-const yaml = require("js-yaml");
-const fs = require("fs");
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 function yamlStringToJson(target) {
   let resultJson;
   try {
     resultJson = yaml.safeLoad(target);
-    console.log(`resultJson: ${JSON.stringify(resultJson, null, 2)}`);
   } catch (e) {
-    console.log(`error parsing yaml string: ${e}`);
     return null;
   }
   return resultJson;
 }
 
 async function yamlFileToJson(filename) {
-  const yamlString = fs.readFileSync(filename, "utf-8");
+  const yamlString = fs.readFileSync(filename, 'utf-8');
   return yamlStringToJson(yamlString);
 }
 
@@ -24,7 +22,6 @@ function jsonToYamlString(jsonObj) {
   try {
     yamlString = yaml.safeDump(jsonObj);
   } catch (e) {
-    console.log(`error dumping yaml string: ${e}`);
     return null;
   }
 
