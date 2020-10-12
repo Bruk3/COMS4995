@@ -2,7 +2,7 @@
 
 ### A comprehensive data serialization language parser
 ![GitHub](https://img.shields.io/github/license/bruk3/j-parser)
-
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/bruk3/j-parser/CI/master)
 
 #### What is it? 
 `j-parser` is a javascript library that allows a seemless conversion of one data serialization language to another. 
