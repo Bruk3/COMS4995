@@ -17,6 +17,11 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
+# sphinx docs
+docs/build
+docs/source/_static
+docs/source/_templates
+
 # nyc test coverage
 .nyc_output
 
